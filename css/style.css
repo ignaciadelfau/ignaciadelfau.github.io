@@ -403,7 +403,7 @@ header { position: sticky; top: 0; z-index: 100; }
 .solar-wrap {
   position: relative;
   width: 100%;
-  height: 360px;
+  height: 400px;
   overflow: visible;
 }
 
@@ -471,7 +471,7 @@ header { position: sticky; top: 0; z-index: 100; }
 /* Each card is absolutely positioned and transformed by JS */
 .solar-card {
   position: absolute;
-  width: 340px;
+  width: 380px;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -502,20 +502,30 @@ header { position: sticky; top: 0; z-index: 100; }
 /* Locked overlay */
 .card-lock-overlay {
   position: absolute; inset: 0;
-  background: rgba(17,17,17,0.55);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 10px;
+  background: rgba(10,10,10,0.68);
+  display: flex; align-items: center; justify-content: center;
   opacity: 0;
   border-radius: 20px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background 0.3s ease;
+  pointer-events: none;
 }
-.card-lock-overlay svg { color: white; }
 .card-lock-overlay span {
+  background: rgba(20,20,20,0.92);
   color: white; font-size: 12px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 10px 20px; border-radius: 999px;
+  white-space: nowrap;
 }
-.solar-card.is-active:hover .card-lock-overlay,
-.solar-card.is-active:focus .card-lock-overlay { opacity: 1; }
+.solar-card.is-locked .solar-card-inner {
+  background: linear-gradient(155deg, #2a2a2a 0%, #0d0d0d 100%);
+}
+.solar-card.is-locked .solar-card-inner img {
+  display: none;
+}
+.solar-card.is-locked .card-lock-overlay {
+  opacity: 1;
+  background: transparent;
+}
 
 /* Active card: center, large */
 .solar-card.is-active {
@@ -561,6 +571,10 @@ header { position: sticky; top: 0; z-index: 100; }
 .solar-card.is-active:focus .card-label {
   opacity: 1;
   transform: translateY(0);
+}
+/* Locked cards never reveal the title/tags, even on hover */
+.solar-card.is-locked .card-label {
+  opacity: 0 !important;
 }
 .card-label-tags {
   font-size: 11px; font-weight: 600;
@@ -831,8 +845,8 @@ header { position: sticky; top: 0; z-index: 100; }
   .nav-toggle { display: flex; }
   .footer { padding: 32px 24px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
-  .solar-wrap { height: 380px; }
-  .solar-card { width: 260px; }
+  .solar-wrap { height: 420px; }
+  .solar-card { width: 300px; }
   .ring-2, .ring-3 { display: none; }
   .project-body { padding: 48px 24px 80px; }
   .project-intro { grid-template-columns: 1fr; gap: 40px; }
@@ -845,7 +859,7 @@ header { position: sticky; top: 0; z-index: 100; }
 }
 @media (max-width: 600px) {
   .hello-word { font-size: clamp(64px, 22vw, 110px); }
-  .solar-card { width: 210px; }
+  .solar-card { width: 240px; }
   .g-3 { grid-template-columns: 1fr; }
 }
 
