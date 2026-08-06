@@ -7,50 +7,60 @@
 const PROJECTS = [
   {
     id: 1,
-    title: 'Openbank',
-    tags: 'UX Design · Fintech',
+    title: 'B2E Inspection Tool',
+    tags: 'UX/UI Design · Logistics',
     dest: 'project.html',
-    locked: false,
+    locked: true,
     img: 'assets/images/project-1.jpg',
   },
   {
     id: 2,
-    title: 'Project Name',
-    tags: 'Brand Identity · Motion',
-    dest: 'project.html',
+    title: 'Openbank — New App',
+    tags: 'UX/UI Design · Fintech',
+    dest: 'project-openbank.html',
     locked: true,
     img: 'assets/images/project-2.jpg',
   },
   {
     id: 3,
-    title: 'Project Name',
-    tags: 'Visual Identity · Web',
-    dest: 'project.html',
-    locked: false,
+    title: 'Openbank × Openpay Unification',
+    tags: 'Product Strategy · Research',
+    dest: 'project-unification.html',
+    locked: true,
     img: 'assets/images/project-3.jpg',
   },
   {
     id: 4,
-    title: 'Project Name',
-    tags: 'UX Research · UI',
-    dest: 'project.html',
+    title: 'Openbank Redesign',
+    tags: 'UX/UI Design · Design Systems',
+    dest: 'project-rebrand.html',
     locked: true,
     img: 'assets/images/project-4.jpg',
   },
   {
     id: 5,
-    title: 'Project Name',
-    tags: 'Product Design',
-    dest: 'project.html',
+    title: 'Garage Beer',
+    tags: 'UX/UI Design · Branding',
+    dest: 'project-garage.html',
     locked: false,
     img: 'assets/images/project-5.jpg',
   },
 ];
 
-/* ---- Passwords: key = dest filename ---- */
-const PASSWORDS = {
-  'project.html': 'demo123',
-};
+/* ---- Single password unlocks the whole carousel ---- */
+const SITE_PASSWORD = 'Carlos';
+const UNLOCK_KEY = 'portfolioUnlocked';
+
+function isUnlocked() {
+  try { return sessionStorage.getItem(UNLOCK_KEY) === 'true'; } catch (e) { return false; }
+}
+function markUnlocked() {
+  try { sessionStorage.setItem(UNLOCK_KEY, 'true'); } catch (e) {}
+}
+
+/* Reference to the live SolarCarousel instance, so the password modal can
+   refresh the on-screen title immediately after unlocking. */
+let activeCarousel = null;
 
 /* ============================================================
    SOLAR CAROUSEL
@@ -75,12 +85,15 @@ class SolarCarousel {
     this.buildA11yList();
     this.render(true);
     this.bindEvents();
+
+    activeCarousel = this;
   }
 
   buildCards() {
+    const locked = !isUnlocked();
     PROJECTS.forEach((p, i) => {
       const card = document.createElement('div');
-      card.className = 'solar-card';
+      card.className = 'solar-card' + (locked ? ' is-locked' : '');
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '-1');
       card.dataset.index = i;
@@ -89,15 +102,9 @@ class SolarCarousel {
         <div class="solar-card-inner">
           <img src="${p.img}" alt="${p.title}" loading="lazy"
                onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'" />
-          ${p.locked ? `
           <div class="card-lock-overlay">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
-            </svg>
-            <span>Password Protected</span>
-          </div>` : ''}
+            <span>Confidential</span>
+          </div>
           <div class="card-label">
             <div class="card-label-tags">${p.tags}</div>
             <div class="card-label-title">${p.title}</div>
@@ -153,8 +160,16 @@ class SolarCarousel {
     if (!this.a11yList) return;
     PROJECTS.forEach(p => {
       const a = document.createElement('a');
+      a.textContent = !isUnlocked()
+        ? 'Confidential project — password protected'
+        : `${p.title} — ${p.tags}`;
       a.href = p.dest;
-      a.textContent = `${p.title} — ${p.tags}`;
+      a.addEventListener('click', e => {
+        if (!isUnlocked()) {
+          e.preventDefault();
+          openModal();
+        }
+      });
       this.a11yList.appendChild(a);
     });
   }
@@ -207,7 +222,7 @@ class SolarCarousel {
       // left:50% top:50% anchors to center; translate(-50%,-50%) removes own size;
       // then orbital offset x/y moves outward; scale applied last.
       card.style.left = '50%';
-      card.style.top  = '30%';
+      card.style.top  = '39%';
 
       const dur = instant ? 0 : 650;
       card.style.transition = instant
@@ -230,10 +245,13 @@ class SolarCarousel {
     const p = PROJECTS[this.current];
     if (!this.titleEl) return;
 
+    const locked = p.locked && !isUnlocked();
+    const label  = locked ? 'Confidential' : p.title;
+
     // Animate title change
     this.titleEl.classList.add('changing');
     setTimeout(() => {
-      this.titleEl.textContent = p.title;
+      this.titleEl.textContent = label;
       this.titleEl.classList.remove('changing');
     }, 200);
   }
@@ -257,8 +275,8 @@ class SolarCarousel {
     }
     // Active card: navigate or open modal
     const p = PROJECTS[i];
-    if (p.locked) {
-      openModal(p.dest, p.title);
+    if (!isUnlocked()) {
+      openModal();
     } else {
       navigateTo(p.dest);
     }
@@ -352,17 +370,12 @@ function initMobileMenu() {
 /* ============================================================
    PASSWORD MODAL
    ============================================================ */
-let pendingDest = '';
-
-function openModal(dest, title) {
+function openModal() {
   const modal     = document.getElementById('password-modal');
-  const nameEl    = document.getElementById('modal-project-name');
   const errorEl   = document.getElementById('modal-error');
   const input     = document.getElementById('modal-password');
   if (!modal) return;
 
-  pendingDest         = dest;
-  nameEl.textContent  = title;
   errorEl.textContent = '';
   input.value         = '';
   modal.setAttribute('aria-hidden', 'false');
@@ -377,18 +390,25 @@ function closeModal() {
   modal.setAttribute('aria-hidden', 'true');
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  pendingDest = '';
+}
+
+function unlockAllCards() {
+  document.querySelectorAll('.solar-card.is-locked').forEach(card => {
+    card.classList.remove('is-locked');
+  });
+  activeCarousel?.updateTitle();
 }
 
 function checkPassword() {
   const input   = document.getElementById('modal-password');
   const errorEl = document.getElementById('modal-error');
-  const val     = input?.value.trim() ?? '';
-  const correct = PASSWORDS[pendingDest] ?? '';
+  const val     = input?.value.trim().toLowerCase() ?? '';
+  const correct = SITE_PASSWORD.toLowerCase();
 
   if (val === correct) {
+    markUnlocked();
+    unlockAllCards();
     closeModal();
-    navigateTo(pendingDest);
   } else {
     errorEl.textContent = 'Incorrect password. Please try again.';
     input.value = '';
@@ -497,10 +517,16 @@ document.head.appendChild(shakeCSS);
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  initNav();
-  initMobileMenu();
-  new SolarCarousel();
-  initPasswordModal();
-  initPageTransitions();
-  initScrollReveal();
+  const inits = [
+    ['initNav', initNav],
+    ['initMobileMenu', initMobileMenu],
+    ['SolarCarousel', () => new SolarCarousel()],
+    ['initPasswordModal', initPasswordModal],
+    ['initPageTransitions', initPageTransitions],
+    ['initScrollReveal', initScrollReveal],
+  ];
+  inits.forEach(([name, fn]) => {
+    try { fn(); }
+    catch (err) { console.error(`[init] ${name} failed:`, err); }
+  });
 });
