@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Openbank × Openpay Unification — Case study by María Ignacia Delfau, UX/UI Designer" />
+  <title>Openbank × Openpay Unification — María Ignacia Delfau</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/project.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syne:wght@700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="case-body case-unification">
+
+  <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+
+  <header role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <img src="assets/images/logo.png" alt="María Ignacia Delfau" class="logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="cs-hero" aria-label="Project introduction">
+      <div class="cs-wrap">
+        <a href="index.html#work" class="cs-back cs-reveal">
+          <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          All projects
+        </a>
+      </div>
+
+      <div class="cs-hero-top cs-reveal">
+        <div>
+          <h1 class="cs-title">Openbank × Openpay Unification</h1>
+          <p class="cs-tags">Product Strategy · Research</p>
+        </div>
+        <p class="cs-lede">
+          <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 1l6 4-6 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>A proposal for the German market on how to integrate the <strong>Buy Now, Pay Later platform Zinia</strong> — renamed <strong>Openpay</strong> after being acquired by Grupo Santander — into the Openbank app.</span>
+        </p>
+      </div>
+
+      <div class="cs-hero-rule" role="presentation"></div>
+
+      <div class="cs-meta cs-reveal">
+        <div class="cs-meta-item">
+          <p class="cs-meta-label">Role</p>
+          <p class="cs-meta-value">UX Researcher · Product Designer</p>
+        </div>
+        <div class="cs-meta-item">
+          <p class="cs-meta-label">Deliverables</p>
+          <p class="cs-meta-value">Discovery research · Convergence roadmap</p>
+        </div>
+        <div class="cs-meta-item">
+          <p class="cs-meta-label">Team</p>
+          <p class="cs-meta-value">Openbank Germany · Openpay</p>
+        </div>
+        <div class="cs-meta-item">
+          <p class="cs-meta-label">Market</p>
+          <p class="cs-meta-value">Germany</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 — THE CHALLENGE -->
+    <section class="cs-challenge">
+      <div class="cs-wrap">
+        <div class="cs-section-head cs-reveal">
+          <h2>01. The Challenge</h2>
+        </div>
+        <div class="cs-challenge-grid">
+          <div class="cs-challenge-words cs-reveal">
+            <span class="cs-challenge-word">Unify.</span>
+            <span class="cs-challenge-word">Simplify.</span>
+            <span class="cs-challenge-word">Convert.</span>
+          </div>
+          <div class="cs-challenge-text cs-reveal">
+            <p>
+              Zinia, a <strong>Buy Now, Pay Later platform</strong>, was acquired by Grupo Santander and
+              rebranded as <strong>Openpay</strong>. The proposal explores how to bring this BNPL experience
+              into the Openbank app for the German market, instead of keeping it as a separate product.
+            </p>
+            <p>The three biggest challenges so far:</p>
+            <ul>
+              <li>Acting as an intermediary between both teams — Openbank and Openpay — and meeting the expectations of each.</li>
+              <li>Finding a way to make the transition frictionless for the customer.</li>
+              <li>At a UI level, finding solutions where Openbank's design system components can absorb Openpay's without breaking either one.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — RESEARCH & WORKSHOPS -->
+    <section class="cs-phases cs-panel">
+      <div class="cs-wrap">
+        <div class="cs-section-head cs-reveal">
+          <h2>02. Research &amp; Workshops</h2>
+        </div>
+        <div class="cs-phases-grid">
+          <p class="cs-phases-heading cs-reveal">Three workshops, two teams, one shared map</p>
+          <div class="cs-challenge-text cs-reveal">
+            <p>The proposal centered mainly on research. We ran <strong>3 workshops with the Openbank
+            Germany and Openpay teams</strong> to understand their expectations, objectives and
+            implications before touching any UI.</p>
+            <p>We used conversational AI tools — <strong>ChatGPT and Claude</strong> — throughout the
+            entire discovery phase: mapping customer journeys by tier and country, comparing rollout
+            channels, and surfacing regulatory differences across markets early on.</p>
+            <p>The conclusion from those first workshops was clear: we needed to <strong>put both teams'
+            information and interests in common</strong>, and from there it became evident that the
+            outcome wouldn't be two connected apps, but <strong>a single app — Openbank's</strong>.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:48px;">
+          <p class="cs-figure-hint" style="justify-content:flex-start; margin-bottom:14px;">Snapshots from the FigJam boards we worked from — the workshops ran fully remote.</p>
+          <div class="cs-fanned-stack cs-reveal">
+            <img src="assets/images/unification/collage/c8.png" alt="Meeting resume board with team questions grouped by topic" loading="lazy" />
+            <img src="assets/images/unification/collage/c4.png" alt="Persona card for Camila Gómez, a Zinia client" loading="lazy" />
+            <img src="assets/images/unification/collage/c10.png" alt="Idea board mapping Openbank Pay products and features" loading="lazy" />
+            <img src="assets/images/unification/collage/c7.png" alt="ChatGPT prompt cards used for discovery research" loading="lazy" />
+            <img src="assets/images/unification/collage/c9.png" alt="Mission statement board for the unification project" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — ROADMAP -->
+    <section class="cs-work">
+      <div class="cs-wrap">
+        <div class="cs-section-head cs-reveal">
+          <h2>03. The Roadmap</h2>
+        </div>
+        <h3 class="cs-subhead cs-reveal">A progressive unification, in three phases.</h3>
+        <div class="cs-challenge-text cs-reveal" style="max-width:760px; margin-bottom:40px;">
+          <p>As of today, the project has been split into <strong>3 phases</strong>. Phase 1 focuses
+          mainly on marketing campaigns; phases 2 and 3 bring in actual design work, progressively
+          folding both apps into a single one — Openbank.</p>
+        </div>
+
+        <div class="cs-plan-table-wrap cs-reveal">
+          <table class="cs-plan-table">
+            <caption class="sr-only">Design plan: what Openbank Pay and Openbank each need to change across phases 1, 2 and 3</caption>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">
+                  <span class="cs-plan-phase">P1</span>
+                  <span class="cs-plan-date">Q4 2026</span>
+                </th>
+                <th scope="col">
+                  <span class="cs-plan-phase">P2</span>
+                  <span class="cs-plan-date">Q2 2027</span>
+                </th>
+                <th scope="col">
+                  <span class="cs-plan-phase">P3</span>
+                  <span class="cs-plan-date">ASAP</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">DS</th>
+                <td>—</td>
+                <td>Decide how Openbank Pay's L3 components map into Openbank (L1, NoComponent, or new CR)</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <th scope="row">Openbank Pay</th>
+                <td>Onboarding flow · sidebar link · promo banner</td>
+                <td>—</td>
+                <td>Co-design the Orders product</td>
+              </tr>
+              <tr>
+                <th scope="row">Openbank</th>
+                <td>Success modal · sidebar link · promo banner</td>
+                <td>Sidebar → Orders nav · embed Orders (iframe)</td>
+                <td>Redesign Orders in Openbank's look &amp; feel · define Global vs. Country flow</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cs-phase-block cs-reveal">
+          <div class="cs-phase-head">
+            <span class="cs-phase-num">Phase 1</span>
+            <h4 class="cs-phase-title">Openbank Pay acquisition journey</h4>
+          </div>
+          <p class="cs-phase-desc">Convert Openpay customers into Openbank customers via a marketing campaign trigger, across two separate app experiences.</p>
+          <div class="cs-phase-row">
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">01</p>
+              <p class="cs-phase-step-title">Checkout completed</p>
+              <p class="cs-phase-step-desc">Customer completes a purchase with Openbank Pay.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="check-circle" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">02</p>
+              <p class="cs-phase-step-title">Tracked invitation offer</p>
+              <p class="cs-phase-step-desc">A targeted invitation is sent after purchase.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="envelope" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">03</p>
+              <p class="cs-phase-step-title">Standard Openbank onboarding</p>
+              <p class="cs-phase-step-desc">Customer opens an account through the existing onboarding flow.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="form-check" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">04</p>
+              <p class="cs-phase-step-title">Incentive delivered</p>
+              <p class="cs-phase-step-desc">The agreed incentive is credited after eligibility is confirmed.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="gift" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">05</p>
+              <p class="cs-phase-step-title">Openbank Pay entry point</p>
+              <p class="cs-phase-step-desc">Customer accesses Openbank Pay from the Openbank menu.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="menu-list" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">06</p>
+              <p class="cs-phase-step-title">Openbank entry point in Pay</p>
+              <p class="cs-phase-step-desc">Customer sees a contextual link to open Openbank.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="link-arrow" aria-hidden="true"></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-phase-block cs-reveal">
+          <div class="cs-phase-head">
+            <span class="cs-phase-num">Phase 2</span>
+            <h4 class="cs-phase-title">Account linking &amp; servicing in Openbank</h4>
+          </div>
+          <p class="cs-phase-desc">Openbank Pay is linked to and serviced from within Openbank, still triggered by marketing, still two app experiences underneath.</p>
+          <div class="cs-phase-row">
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">01</p>
+              <p class="cs-phase-step-title">Checkout completed</p>
+              <p class="cs-phase-step-desc">Customer completes a purchase with Openbank Pay.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="check-circle" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">02</p>
+              <p class="cs-phase-step-title">Openbank login</p>
+              <p class="cs-phase-step-desc">Customer logs in to Openbank.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="lock" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">03</p>
+              <p class="cs-phase-step-title">Pay relationship detected</p>
+              <p class="cs-phase-step-desc">A possible Openbank Pay relationship is identified without requiring extra data.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="chain" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">04</p>
+              <p class="cs-phase-step-title">Confirm, authenticate and link</p>
+              <p class="cs-phase-step-desc">Customer confirms ownership, authenticates, and gives consent.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="shield-check" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">05</p>
+              <p class="cs-phase-step-title">Pay access in Openbank</p>
+              <p class="cs-phase-step-desc">Linked product appears in Global Position and side menu.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="wallet" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">06</p>
+              <p class="cs-phase-step-title">View products, service &amp; support</p>
+              <p class="cs-phase-step-desc">Customer manages Openbank Pay products embedded in Openbank.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="grid" aria-hidden="true"></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-phase-block cs-reveal">
+          <div class="cs-phase-head">
+            <span class="cs-phase-num">Phase 3</span>
+            <h4 class="cs-phase-title">One single app for all products and services</h4>
+          </div>
+          <p class="cs-phase-desc">One identity, one onboarding, one app. Progressive onboarding lets Openbank reuse existing data and only ask for what's missing.</p>
+          <div class="cs-phase-row">
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">01</p>
+              <p class="cs-phase-step-title">Pay checkout completed</p>
+              <p class="cs-phase-step-desc">Customer makes a purchase with Openbank Pay, data kept to a quick Openbank Onboarding.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="check-circle" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">02</p>
+              <p class="cs-phase-step-title">Openbank login</p>
+              <p class="cs-phase-step-desc">Customer opens Openbank to manage their Openbank Pay product.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="lock" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">03</p>
+              <p class="cs-phase-step-title">One single app, progressive onboarding</p>
+              <p class="cs-phase-step-desc">Customer sees all Openbank products offered from the same experience.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="merge-circles" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">04</p>
+              <p class="cs-phase-step-title">Select additional banking product</p>
+              <p class="cs-phase-step-desc">Customer chooses a new banking product from the same experience.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="card-plus" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">05</p>
+              <p class="cs-phase-step-title">Progressive onboarding</p>
+              <p class="cs-phase-step-desc">Openbank reuses available data and only asks for what's missing.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="steps-check" aria-hidden="true"></svg></div>
+            </div>
+            <div class="cs-phase-step">
+              <p class="cs-phase-step-num">06</p>
+              <p class="cs-phase-step-title">Manage Pay and banking products</p>
+              <p class="cs-phase-step-desc">Pay and banking products are all unified in one Openbank experience.</p>
+              <div class="cs-phase-sketch"><svg class="cs-sketch-frame" viewBox="0 0 120 200" data-icon="dashboard" aria-hidden="true"></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="cs-challenge cs-panel">
+      <div class="cs-wrap cs-statement-center cs-reveal">
+        <p class="cs-closing" style="margin-top:0;">Currently in progress — the roadmap above reflects
+        where the project stands today, as we continue aligning both teams phase by phase toward a
+        single Openbank experience.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PREVIOUS / NEXT PROJECT -->
+  <nav class="cs-project-nav" aria-label="Project navigation">
+    <a href="project-openbank.html" class="cs-nav-link prev">
+      <span class="cs-nav-arrow" aria-hidden="true">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Previous project
+    </a>
+    <a href="project-rebrand.html" class="cs-nav-link next">
+      Next project
+      <span class="cs-nav-arrow" aria-hidden="true">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </nav>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2024 María Ignacia Delfau</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://linkedin.com/in/ignacia-delfau" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ignaciadelfau@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rough.js/2.1.1/rough.umd.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = document.querySelectorAll('.cs-reveal');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('cs-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      els.forEach(el => obs.observe(el));
+    });
+
+    /* ---- Hand-drawn wireframe sketches (Rough.js) ---- */
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof rough === 'undefined') return;
+      const STROKE = '#3a3a3a';
+      const opts = { stroke: STROKE, strokeWidth: 1.8, roughness: 1.8, bowing: 1.2 };
+      const thin  = { stroke: STROKE, strokeWidth: 1.4, roughness: 1.6, bowing: 1 };
+
+      function frame(rc, svg) {
+        svg.appendChild(rc.rectangle(4, 4, 112, 192, { ...opts, strokeWidth: 2.2, roughness: 1.6 }));
+        svg.appendChild(rc.line(46, 13, 74, 13, { ...opts, strokeWidth: 3 }));
+        [146, 158, 170].forEach((y, i) => {
+          const w = i === 2 ? 56 : (i === 1 ? 48 : 64);
+          const l = rc.line(28, y, 28 + w, y, thin);
+          l.setAttribute('opacity', '0.4');
+          svg.appendChild(l);
+        });
+      }
+
+      function icon(rc, svg, type) {
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('transform', 'translate(44,58)');
+        svg.appendChild(g);
+        const add = shape => g.appendChild(shape);
+
+        switch (type) {
+          case 'check-circle':
+            add(rc.circle(16, 16, 28, opts));
+            add(rc.line(5, 16, 13, 24, opts));
+            add(rc.line(13, 24, 28, 5, opts));
+            break;
+          case 'envelope':
+            add(rc.rectangle(0, 8, 32, 18, opts));
+            add(rc.line(0, 9, 16, 21, opts));
+            add(rc.line(16, 21, 32, 9, opts));
+            break;
+          case 'form-check':
+            add(rc.rectangle(4, 0, 24, 28, opts));
+            add(rc.line(8, 8, 24, 8, thin));
+            add(rc.line(8, 13, 24, 13, thin));
+            add(rc.line(8, 18, 20, 18, thin));
+            add(rc.line(9, 23.5, 11.5, 26, thin));
+            add(rc.line(11.5, 26, 17, 20, thin));
+            break;
+          case 'gift':
+            add(rc.rectangle(1, 13, 30, 15, opts));
+            add(rc.line(1, 18, 31, 18, thin));
+            add(rc.line(16, 13, 16, 28, thin));
+            add(rc.curve([[16, 13], [11, 8], [7, 10], [9, 14], [16, 13]], thin));
+            add(rc.curve([[16, 13], [21, 8], [25, 10], [23, 14], [16, 13]], thin));
+            break;
+          case 'menu-list':
+            add(rc.rectangle(4, 0, 24, 28, opts));
+            add(rc.line(9, 8, 23, 8, thin));
+            add(rc.line(9, 14, 23, 14, thin));
+            add(rc.line(9, 20, 19, 20, thin));
+            break;
+          case 'link-arrow':
+            add(rc.circle(10, 16, 13, opts));
+            add(rc.circle(24, 16, 13, opts));
+            break;
+          case 'lock':
+            add(rc.rectangle(3, 14, 26, 15, opts));
+            add(rc.curve([[7, 14], [7, 6], [11, 2], [16, 2], [21, 2], [25, 6], [25, 14]], opts));
+            add(rc.circle(16, 20.5, 3, thin));
+            break;
+          case 'chain':
+            add(rc.ellipse(11, 15, 15, 10, { ...opts, roughness: 1.5 }));
+            add(rc.ellipse(21, 17, 15, 10, { ...opts, roughness: 1.5 }));
+            break;
+          case 'shield-check':
+            add(rc.curve([[16, 0], [26, 4], [26, 12], [26, 22], [16, 28], [6, 22], [6, 12], [6, 4], [16, 0]], opts));
+            add(rc.line(10, 14, 14, 19, opts));
+            add(rc.line(14, 19, 22, 8, opts));
+            break;
+          case 'wallet':
+            add(rc.rectangle(0, 9, 32, 17, opts));
+            add(rc.line(0, 14, 32, 14, thin));
+            add(rc.circle(24, 19.5, 3.2, thin));
+            break;
+          case 'grid':
+            add(rc.rectangle(0, 0, 13, 13, opts));
+            add(rc.rectangle(17, 0, 13, 13, opts));
+            add(rc.rectangle(0, 17, 13, 13, opts));
+            add(rc.rectangle(17, 17, 13, 13, opts));
+            break;
+          case 'merge-circles':
+            add(rc.circle(11, 16, 18, opts));
+            add(rc.circle(21, 16, 18, opts));
+            break;
+          case 'card-plus':
+            add(rc.rectangle(0, 4, 32, 21, opts));
+            add(rc.line(0, 10, 32, 10, thin));
+            add(rc.line(21, 15, 21, 21, thin));
+            add(rc.line(18, 18, 24, 18, thin));
+            break;
+          case 'steps-check':
+            [0, 9, 18].forEach((y, i) => {
+              const o = i === 2 ? { ...thin } : thin;
+              const box = rc.rectangle(4, y, 7, 7, o);
+              if (i === 2) box.setAttribute('opacity', '0.4');
+              add(box);
+              if (i < 2) {
+                add(rc.line(5.5, y + 3.8, 7, y + 5.5, thin));
+                add(rc.line(7, y + 5.5, 10, y + 1.5, thin));
+              }
+              const l = rc.line(15, y + 3.5, 28, y + 3.5, thin);
+              if (i === 2) l.setAttribute('opacity', '0.4');
+              add(l);
+            });
+            break;
+          case 'dashboard':
+            add(rc.line(1, 27, 1, 17, opts));
+            add(rc.line(9, 27, 9, 9, opts));
+            add(rc.line(17, 27, 17, 19, opts));
+            add(rc.line(25, 27, 25, 13, opts));
+            add(rc.line(0, 27, 27, 27, opts));
+            break;
+        }
+      }
+
+      document.querySelectorAll('svg[data-icon]').forEach(svg => {
+        const rc = rough.svg(svg);
+        frame(rc, svg);
+        icon(rc, svg, svg.dataset.icon);
+      });
+    });
+  </script>
+</body>
+</html>
