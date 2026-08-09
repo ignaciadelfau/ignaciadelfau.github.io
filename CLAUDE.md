@@ -86,6 +86,25 @@ Learned while building the Garage Beer page — worth checking for every new pro
 - Device "screen" mockups (laptop/phone frames) are transparent PNGs with their own baked-in drop shadow. Don't add `box-shadow`/`border-radius` in CSS on top of them — that styling is for older flat rectangular screenshots only.
 - Diagrams (e.g. the Garage Beer sitemap, `assets/images/garage/sitemap.svg`) are hand-built inline SVG rather than a screenshot — renders crisp at any size and can use `--cs-accent` exactly. Prefer this over screenshotting a Figma diagram when a project needs a new one.
 
+## Brand assets (favicon + social preview)
+
+`favicon.ico`, `favicon-32.png` and `apple-touch-icon.png` are the logo mark knocked out in white on a `#1000FF` tile. `assets/images/og-image.jpg` (1200×630) is the card shown when the link is shared on LinkedIn/WhatsApp, set with NeutraText and the brand blue.
+
+All four are **generated**, not hand-made — regenerate with:
+
+```
+python3 tools/generar-favicons.py    # only if the logo changes
+python3 tools/generar-og-image.py    # if the name or tagline changes
+```
+
+Both scripts are deterministic (same input → byte-identical output) and need Pillow. The name/tagline live at the top of `generar-og-image.py`; if you change them there, also update the `og:title` / `og:description` meta tags, which are duplicated across all 7 pages.
+
+## Standing decisions
+
+- **Unused images stay.** ~38 files (~7 MB), mostly `assets/images/unification/` (`workshop-flow.png`, `hero-persona-journey.png`, `ai-channels-tiers.png`) plus the `.png` twins of the Garage `.svg` personas. Ignacia asked to keep them as archived source material (2026-08-09). They cost nothing in page weight — a browser never requests them. **Do not "clean them up".**
+- **The password is deliberately weak for now.** `SITE_PASSWORD = 'Carlos'` is readable in plain text in `js/main.js` from any browser's view-source. This is known and accepted as a casual screen, not security. Don't present locked projects as NDA-safe.
+
 ## Known gotchas
-- `README.md` is out of date in two places: it describes **per-project passwords** in `main.js` (the actual mechanism is one global `SITE_PASSWORD`), and a step to "add a card to `index.html`" (there are no cards in `index.html` anymore — only the `PROJECTS` array in `main.js`). Trust this file and the actual code over the README for those two points.
-- `wrangler.jsonc` exists but there's no `package.json`/lockfile — treat the manual GitHub-upload flow (per README) as the real deploy path unless told otherwise.
+- The `g-row` / `g-img` gallery system still exists in `style.css` and `project.css` but is **dead CSS** — no HTML page uses it anymore. The live layout system is the `cs-` component library.
+- `wrangler.jsonc` exists but there's no `package.json`/lockfile — it's vestigial. The real deploy path is `git push` (see Publishing above); Cloudflare is not involved.
+- `assets/images/face.jpg` and `about-portrait.jpg` are the same photo at different sizes: `face.jpg` is a 400×400 crop for the tiny bubble in the "o" of *Hello*, `about-portrait.jpg` is the full 3:4 portrait. Not a duplicate to dedupe.

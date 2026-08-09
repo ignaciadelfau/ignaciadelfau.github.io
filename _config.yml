@@ -4,5 +4,6 @@ exclude:
   - CLAUDE.md
   - README.md
   - wrangler.jsonc
+  - tools
   - .gitignore
   - .DS_Store
