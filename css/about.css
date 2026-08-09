@@ -1,0 +1,547 @@
+/* ============================================================
+   ABOUT PAGE — css/about.css
+   ============================================================ */
+
+.about-body { background: #fff; }
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #1000FF;
+  z-index: 99999;
+  transition: width 0.12s linear;
+  pointer-events: none;
+}
+
+/* ── Shared reveal ── */
+.ab-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ab-reveal.ab-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Map item: starts invisible, animates in via JS ── */
+.ab-map-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ab-map-item.ab-map-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── Scroll hint ── */
+.ab-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  animation: ab-bounce 2.2s ease-in-out infinite;
+  z-index: 10;
+}
+.ab-scroll-hint svg { width: 13px; height: 13px; }
+@keyframes ab-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ── Nav white override ── */
+.nav--white .nav-links a,
+.nav--white .nav-logo { color: #fff !important; }
+.nav--white .nav-toggle span { background: #fff !important; }
+
+/* ============================================================
+   ① HERO SECTION
+   ============================================================ */
+.ab-hero-section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  background: #1000FF;
+}
+.ab-hero-inner {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.ab-hero-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(48px, 8vw, 110px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+  display: flex; align-items: center; gap: 0.15em;
+}
+
+/* Text underline sweep on hover */
+.ab-hero-text {
+  position: relative;
+  cursor: default;
+}
+.ab-hero-text::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 3px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ab-hero-title:hover .ab-hero-text::after {
+  width: 100%;
+}
+
+/* Wave emoji animation on hover */
+.ab-hero-wave {
+  display: inline-block;
+  transform-origin: 70% 80%;
+  transition: transform 0.2s ease;
+}
+.ab-hero-title:hover .ab-hero-wave {
+  animation: ab-wave 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes ab-wave {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(20deg); }
+  40%  { transform: rotate(-8deg); }
+  60%  { transform: rotate(16deg); }
+  80%  { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Arrow button inline, right below subtitle */
+.ab-hero-arrow {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  margin-top: 8px;
+  animation: ab-bounce 2.2s ease-in-out infinite;
+  color: #fff;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.ab-hero-arrow:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+}
+.ab-hero-arrow svg { width: 13px; height: 13px; }
+.ab-hero-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+.ab-scroll-hint--dark {
+  border-color: rgba(255,255,255,0.6);
+  color: #fff;
+}
+
+/* ============================================================
+   ② MAP SECTION
+   ============================================================ */
+.ab-map-section {
+  height: 100vh;
+  min-height: 620px;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  /* No display:flex — all children are position:absolute */
+}
+
+/* SVG lines overlay (kept but unused — no arrows) */
+.ab-map-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+/* Central photo — always visible, no animation class */
+.ab-map-photo {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(160px, 18vw, 220px);
+  height: clamp(160px, 18vw, 220px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #eee;
+  z-index: 5;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s ease;
+  cursor: default;
+}
+.ab-map-photo:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+.ab-map-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+/* Float base */
+.ab-float { position: absolute; z-index: 4; }
+
+.ab-float-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 2.2vw, 28px);
+  color: #111; margin: 0 0 5px; line-height: 1.1;
+}
+.ab-float-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; color: #999; margin: 0 0 10px;
+}
+
+.ab-pill-group {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+}
+
+.ab-pill {
+  border: 1.5px solid #1000FF;
+  color: #1000FF;
+  border-radius: 999px;
+  padding: 4px 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 400;
+  white-space: nowrap; background: #fff;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s cubic-bezier(0.16,1,0.3,1);
+  cursor: default;
+}
+.ab-pill:hover {
+  background: #1000FF;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Positions — defined via drag tool, scaled to 100vh ── */
+
+.ab-float--expertise {
+  top: 8vh;
+  right: 8vw;
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 7px;
+  max-width: 340px;
+}
+
+.ab-float--sports {
+  top: 7vh;
+  left: 26vw;
+}
+
+.ab-float--photos {
+  top: 36vh;
+  right: 9vw;
+  text-align: left;
+}
+
+.ab-float--skills {
+  bottom: 12vh;
+  left: 22vw;
+  max-width: 200px;
+}
+
+.ab-float--languages {
+  bottom: 22vh;
+  right: 17vw;
+}
+
+.ab-float--ilustrar {
+  top: 21vh;
+  left: 8vw;
+}
+
+/* ── Emoji in title ── */
+.ab-emoji {
+  font-style: normal;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.ab-float-title:hover .ab-emoji {
+  transform: rotate(-15deg) scale(1.2);
+}
+
+/* ============================================================
+   SPORTS ICONS
+   ============================================================ */
+.ab-sport-icons {
+  display: flex; gap: 8px; margin-top: 8px;
+}
+.ab-sport-icon {
+  font-size: 22px;
+  display: inline-block;
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ab-sport-icon:hover,
+.ab-sport-icon.bounce {
+  animation: ab-sport-bounce 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes ab-sport-bounce {
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-10px) scale(1.15); }
+  70%  { transform: translateY(-4px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ============================================================
+   PHOTO STACK
+   ============================================================ */
+.ab-photo-stack {
+  position: relative;
+  width: 160px;
+  height: 120px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.ab-photo-card {
+  position: absolute;
+  width: 130px;
+  height: 100px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease;
+  transform-origin: bottom center;
+}
+.ab-photo-card-img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+}
+.ab-photo-card-label {
+  padding: 4px 8px;
+  display: flex; flex-direction: column;
+}
+.ab-photo-card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 600;
+  color: #111; line-height: 1.3;
+}
+.ab-photo-card-loc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px; color: #999;
+}
+
+/* Stacked positions — default (collapsed) */
+.ab-photo-card--1 {
+  top: 0; left: 0;
+  z-index: 3;
+  transform: rotate(0deg);
+}
+.ab-photo-card--2 {
+  top: 4px; left: 8px;
+  z-index: 2;
+  transform: rotate(5deg);
+}
+.ab-photo-card--3 {
+  top: 8px; left: 16px;
+  z-index: 1;
+  transform: rotate(10deg);
+}
+
+/* Fanned state on hover */
+.ab-photo-stack:hover .ab-photo-card--1,
+.ab-photo-card--1.fanned {
+  transform: rotate(-10deg) translateX(-20px) translateY(-8px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+.ab-photo-stack:hover .ab-photo-card--2,
+.ab-photo-card--2.fanned {
+  transform: rotate(0deg) translateY(-12px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+.ab-photo-stack:hover .ab-photo-card--3,
+.ab-photo-card--3.fanned {
+  transform: rotate(12deg) translateX(20px) translateY(-8px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+
+/* ============================================================
+   ILUSTRAR BLOCK
+   ============================================================ */
+.ab-ilustrar-img {
+  width: 140px;
+  height: 105px;
+  margin-top: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border: 1px solid #eee;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.4s ease;
+}
+.ab-float--ilustrar:hover .ab-ilustrar-img {
+  transform: scale(1.04) rotate(-1.5deg);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   ③ STATEMENT — blue
+   ============================================================ */
+.ab-statement-section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 48px;
+  background: #1000FF;
+  position: relative;
+}
+.ab-statement-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 40px;
+  max-width: 1100px;
+}
+.ab-statement {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 3vw, 46px);
+  line-height: 1.35; letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+}
+
+/* Each word animates in */
+.ab-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.ab-word--strong {
+  font-weight: 700;
+}
+.ab-statement.ab-words-visible .ab-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Statement arrow — same style as hero arrow */
+.ab-statement-arrow {
+  margin-top: 0;
+  animation: ab-bounce 2.2s ease-in-out infinite;
+}
+
+.ab-inline-photo {
+  display: inline-block;
+  width: clamp(36px, 4vw, 52px);
+  height: clamp(36px, 4vw, 52px);
+  border-radius: 50%; overflow: hidden;
+  vertical-align: middle; margin: 0 6px;
+  border: 2px solid rgba(255,255,255,0.35);
+  position: relative; top: -3px;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.ab-inline-photo:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+.ab-inline-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 10%;
+}
+
+/* ============================================================
+   ④ CTA — white
+   ============================================================ */
+.ab-cta-section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 24px;
+  background: #fff; position: relative;
+}
+.ab-cta-inner {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+.ab-cta-title {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(52px, 10vw, 140px);
+  letter-spacing: -0.03em; line-height: 1; color: #111;
+  transition: color 0.3s ease;
+}
+.ab-cta-title:hover {
+  color: #1000FF;
+}
+.ab-cta-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 400; color: #555;
+}
+.ab-cta-btn {
+  display: inline-block; margin-top: 8px;
+  padding: 12px 28px;
+  border: 1.5px solid #1000FF; border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px; font-weight: 500;
+  color: #1000FF; text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease,
+              transform 0.3s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.3s ease;
+}
+.ab-cta-btn:hover {
+  background: #1000FF;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(16, 0, 255, 0.25);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .ab-map-section {
+    height: auto;
+    min-height: auto;
+    padding: 80px 24px 100px;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .ab-map-photo {
+    position: relative; left: auto; top: auto;
+    transform: none; margin: 0 auto 40px;
+    width: 160px; height: 160px;
+  }
+  .ab-map-photo:hover {
+    transform: scale(1.05);
+  }
+  .ab-float {
+    position: relative;
+    left: auto !important; right: auto !important;
+    top: auto !important; bottom: auto !important;
+    transform: none !important;
+    text-align: left !important;
+    margin-bottom: 28px;
+  }
+  .ab-float--languages .ab-pill-group { justify-content: flex-start; }
+  .ab-float--expertise { justify-content: flex-start; }
+  .ab-statement-section { padding: 60px 28px; }
+  .ab-photo-stack { width: 140px; height: 110px; }
+}

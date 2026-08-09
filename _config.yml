@@ -1,0 +1,8 @@
+# Configuración de GitHub Pages.
+# Estos archivos quedan guardados en el repo pero NO se publican en ignaciadelfau.com
+exclude:
+  - CLAUDE.md
+  - README.md
+  - wrangler.jsonc
+  - .gitignore
+  - .DS_Store

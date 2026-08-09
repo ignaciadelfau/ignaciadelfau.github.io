@@ -1,0 +1,10 @@
+# archivos del sistema (macOS)
+.DS_Store
+._*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

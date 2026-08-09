@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About María Ignacia Delfau — UX/UI Designer in Barcelona" />
+  <title>About — María Ignacia Delfau</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://ignaciadelfau.com/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="María Ignacia Delfau" />
+  <meta property="og:title" content="About — María Ignacia Delfau" />
+  <meta property="og:description" content="About María Ignacia Delfau — UX/UI Designer in Barcelona" />
+  <meta property="og:url" content="https://ignaciadelfau.com/about.html" />
+  <meta property="og:image" content="https://ignaciadelfau.com/assets/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="about-body">
+
+  <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <header role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <img src="assets/images/logo.png" alt="María Ignacia Delfau" class="logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="about.html" aria-current="page">About</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ① HERO -->
+    <section class="ab-hero-section" aria-label="Introduction" id="ab-s1">
+      <div class="ab-hero-inner ab-reveal">
+        <h1 class="ab-hero-title">
+          <span class="ab-hero-text">Hey there!</span>
+          <span class="ab-hero-wave" aria-hidden="true">👋</span>
+        </h1>
+        <p class="ab-hero-sub">Let's scroll and know me better :)</p>
+        <button class="ab-hero-arrow" aria-label="Scroll down"
+          onclick="document.getElementById('ab-s2').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ② CONSTELLATION MAP -->
+    <section class="ab-map-section" aria-label="Skills and interests" id="ab-s2">
+
+      <!-- SVG lines drawn dynamically -->
+      <svg class="ab-map-lines" aria-hidden="true" id="ab-lines"></svg>
+
+      <!-- Central photo — no animation, always visible -->
+      <div class="ab-map-photo" id="ab-map-center">
+        <img src="assets/images/about-portrait.jpg" alt="María Ignacia Delfau" />
+      </div>
+
+      <!-- EXPERTISE PILLS — top center -->
+      <div class="ab-float ab-float--expertise ab-map-item" data-delay="0" data-line="false" id="fl-expertise">
+        <span class="ab-pill">UI design</span>
+        <span class="ab-pill">Banking</span>
+        <span class="ab-pill">Public services</span>
+        <span class="ab-pill">Accessibility</span>
+        <span class="ab-pill">Prototyping</span>
+        <span class="ab-pill">Research</span>
+        <span class="ab-pill">UX design</span>
+        <span class="ab-pill">Design System</span>
+        <span class="ab-pill">Agile methodology</span>
+      </div>
+
+      <!-- SPORTS — right side with sport emojis -->
+      <div class="ab-float ab-float--sports ab-map-item" data-delay="500" data-line="false" id="fl-sports">
+        <p class="ab-float-title">Sports</p>
+        <p class="ab-float-sub">Better it is outside</p>
+        <div class="ab-sport-icons">
+          <span class="ab-sport-icon" title="Cycling">🚴‍♀️</span>
+          <span class="ab-sport-icon" title="Hiking">🧗‍♀️</span>
+          <span class="ab-sport-icon" title="Running">🏃‍♀️</span>
+          <span class="ab-sport-icon" title="Outdoors">⛺️</span>
+        </div>
+      </div>
+
+      <!-- TAKE PHOTOS — top right with stacked photo cards -->
+      <div class="ab-float ab-float--photos ab-map-item" data-delay="1000" data-line="false" id="fl-photos">
+        <p class="ab-float-title">Take photos <span class="ab-emoji">📷</span> )</p>
+        <div class="ab-photo-stack">
+          <div class="ab-photo-card ab-photo-card--1">
+            <div class="ab-photo-card-img" style="background: linear-gradient(135deg, #b0c4b1 0%, #7a9e7e 100%);"></div>
+            <div class="ab-photo-card-label">
+              <span class="ab-photo-card-name">Cannon AE1</span>
+              <span class="ab-photo-card-loc">Photo Gardena, 01</span>
+            </div>
+          </div>
+          <div class="ab-photo-card ab-photo-card--2">
+            <div class="ab-photo-card-img" style="background: linear-gradient(135deg, #a8c5da 0%, #6a9dba 100%);"></div>
+          </div>
+          <div class="ab-photo-card ab-photo-card--3">
+            <div class="ab-photo-card-img" style="background: linear-gradient(135deg, #d4c5a9 0%, #b8a07a 100%);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS — left bottom -->
+      <div class="ab-float ab-float--skills ab-map-item" data-delay="1500" data-line="false" id="fl-skills">
+        <p class="ab-float-title">Skills</p>
+        <div class="ab-pill-group">
+          <span class="ab-pill">Figma</span>
+          <span class="ab-pill">Jira</span>
+          <span class="ab-pill">Confluence</span>
+          <span class="ab-pill">Adobe Creative Suite</span>
+          <span class="ab-pill">Zeplin</span>
+          <span class="ab-pill">HTML</span>
+          <span class="ab-pill">CSS</span>
+        </div>
+      </div>
+
+      <!-- LANGUAGES — left middle -->
+      <div class="ab-float ab-float--languages ab-map-item" data-delay="2000" data-line="false" id="fl-languages">
+        <p class="ab-float-title">Languages</p>
+        <div class="ab-pill-group">
+          <span class="ab-pill">Spanish</span>
+          <span class="ab-pill">English</span>
+        </div>
+      </div>
+
+      <!-- ILUSTRAR — bottom left with placeholder image -->
+      <div class="ab-float ab-float--ilustrar ab-map-item" data-delay="2500" data-line="false" id="fl-ilustrar">
+        <p class="ab-float-title">Ilustrar</p>
+        <div class="ab-ilustrar-img">
+          <svg width="100%" height="100%" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="120" height="90" rx="4" fill="#f0f0f0"/>
+            <circle cx="42" cy="38" r="14" fill="#d0d0d0"/>
+            <ellipse cx="42" cy="75" rx="22" ry="10" fill="#d0d0d0"/>
+            <rect x="70" y="28" width="36" height="6" rx="3" fill="#e0e0e0"/>
+            <rect x="70" y="40" width="28" height="4" rx="2" fill="#e0e0e0"/>
+            <rect x="70" y="50" width="32" height="4" rx="2" fill="#e0e0e0"/>
+          </svg>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ③ BIO STATEMENT — blue bg -->
+    <section class="ab-statement-section" aria-label="Bio" id="ab-s3">
+      <div class="ab-statement-inner">
+        <div class="ab-statement">
+          <span class="ab-word">I'm</span>
+          <span class="ab-word">a</span>
+          <span class="ab-word">Chilean&nbsp;designer</span>
+          <span class="ab-word">in</span>
+          <span class="ab-word">Barcelona,</span>
+          <span class="ab-word ab-word--strong">specializing</span>
+          <span class="ab-word ab-word--strong">in</span>
+          <span class="ab-word ab-word--strong">UX/UI</span>
+          <span class="ab-word ab-word--strong">design.</span>
+          <span class="ab-inline-photo ab-word" aria-hidden="true">
+            <img src="assets/images/about-portrait.jpg" alt="" loading="lazy" />
+          </span>
+          <span class="ab-word">I'm</span>
+          <span class="ab-word">passionate</span>
+          <span class="ab-word">about</span>
+          <span class="ab-word">projects</span>
+          <span class="ab-word">that</span>
+          <span class="ab-word">enhance</span>
+          <span class="ab-word">user</span>
+          <span class="ab-word">experiences</span>
+          <span class="ab-word">and</span>
+          <span class="ab-word">promote</span>
+          <span class="ab-word">a</span>
+          <span class="ab-word ab-word--strong">sustainable,</span>
+          <span class="ab-word ab-word--strong">equitable</span>
+          <span class="ab-word ab-word--strong">future.</span>
+        </div>
+        <button class="ab-hero-arrow ab-statement-arrow" aria-label="Scroll down"
+          onclick="document.getElementById('ab-s4').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ④ LET'S TALK -->
+    <section class="ab-cta-section" aria-label="Contact" id="ab-s4">
+      <div class="ab-cta-inner ab-reveal">
+        <h2 class="ab-cta-title">Let's talk</h2>
+        <p class="ab-cta-sub">And make something fun together&nbsp;:)</p>
+        <a href="mailto:ignaciadelfau@gmail.com" class="ab-cta-btn" target="_blank" rel="noopener">Hit me up!</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 María Ignacia Delfau</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://linkedin.com/in/ignacia-delfau" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ignaciadelfau@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ── Nav white on blue section ──
+      const nav = document.getElementById('main-nav');
+      const blueSections = [
+        document.getElementById('ab-s1'),
+        document.getElementById('ab-s3'),
+      ];
+      const navObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          const anyBlue = blueSections.some(s => s && s.classList.contains('ab-in-view'));
+          if (e.isIntersecting) e.target.classList.add('ab-in-view');
+          else e.target.classList.remove('ab-in-view');
+          const isBlue = blueSections.some(s => s && s.classList.contains('ab-in-view'));
+          nav.classList.toggle('nav--white', isBlue);
+          progressBar.style.background = isBlue ? '#fff' : '#1000FF';
+        });
+      }, { threshold: 0.3 });
+      blueSections.forEach(s => { if (s) navObs.observe(s); });
+
+      // ── Standard reveal ──
+      const reveals = document.querySelectorAll('.ab-reveal');
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('ab-visible'); revealObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => revealObs.observe(el));
+
+      // ── Map constellation ──
+      const mapSection = document.getElementById('ab-s2');
+      const mapItems = mapSection.querySelectorAll('.ab-map-item');
+      let mapTriggered = false;
+      const mapObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !mapTriggered) {
+            mapTriggered = true;
+            mapItems.forEach(item => {
+              setTimeout(() => item.classList.add('ab-map-visible'), parseInt(item.dataset.delay || 0, 10));
+            });
+          }
+        });
+      }, { threshold: 0.15 });
+      mapObs.observe(mapSection);
+
+      // ── Scroll progress bar ──
+      const progressBar = document.getElementById('scroll-progress');
+      const headerEl = document.querySelector('header[role="banner"]');
+      function setProgressTop() {
+        const h = headerEl ? headerEl.getBoundingClientRect().height : 0;
+        progressBar.style.top = h + 'px';
+      }
+      setProgressTop();
+      window.addEventListener('resize', setProgressTop, { passive: true });
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+      }, { passive: true });
+
+      // ── Statement words stagger ──
+      const statementEl = document.querySelector('.ab-statement');
+      if (statementEl) {
+        // Pre-assign delays so they're ready before the class fires
+        statementEl.querySelectorAll('.ab-word').forEach((w, i) => {
+          w.style.transitionDelay = (i * 50) + 'ms';
+        });
+        const wordObs = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              // Small rAF to ensure delays are painted before class triggers transition
+              requestAnimationFrame(() => {
+                statementEl.classList.add('ab-words-visible');
+              });
+              wordObs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        wordObs.observe(statementEl);
+      }
+
+      // ── Draggable map items ──
+      mapItems.forEach(el => {
+        let isDragging = false, ox, oy, startL, startT;
+
+        el.style.cursor = 'grab';
+
+        el.addEventListener('pointerdown', e => {
+          // Don't interfere with pill hover or inner clicks
+          isDragging = true;
+          el.setPointerCapture(e.pointerId);
+          el.style.cursor = 'grabbing';
+          el.style.transition = 'none';
+          el.style.zIndex = 50;
+
+          const sr = mapSection.getBoundingClientRect();
+          const er = el.getBoundingClientRect();
+          ox = e.clientX;
+          oy = e.clientY;
+          startL = er.left - sr.left;
+          startT = er.top  - sr.top;
+
+          // Convert any right/bottom to left/top so we can move freely
+          el.style.removeProperty('right');
+          el.style.removeProperty('bottom');
+          el.style.left = startL + 'px';
+          el.style.top  = startT + 'px';
+        });
+
+        el.addEventListener('pointermove', e => {
+          if (!isDragging) return;
+          const sr = mapSection.getBoundingClientRect();
+          let nx = startL + (e.clientX - ox);
+          let ny = startT + (e.clientY - oy);
+          // Keep within section bounds
+          nx = Math.max(0, Math.min(sr.width  - el.offsetWidth,  nx));
+          ny = Math.max(0, Math.min(sr.height - el.offsetHeight, ny));
+          el.style.left = nx + 'px';
+          el.style.top  = ny + 'px';
+        });
+
+        el.addEventListener('pointerup', () => {
+          isDragging = false;
+          el.style.cursor = 'grab';
+          el.style.transition = '';
+          el.style.zIndex = 4;
+        });
+
+        el.addEventListener('pointercancel', () => {
+          isDragging = false;
+          el.style.cursor = 'grab';
+          el.style.transition = '';
+          el.style.zIndex = 4;
+        });
+      });
+
+      // ── Photo stack fan ──
+      const photoStack = document.querySelector('.ab-photo-stack');
+      if (photoStack) {
+        photoStack.addEventListener('mouseenter', () => photoStack.querySelectorAll('.ab-photo-card').forEach(c => c.classList.add('fanned')));
+        photoStack.addEventListener('mouseleave', () => photoStack.querySelectorAll('.ab-photo-card').forEach(c => c.classList.remove('fanned')));
+      }
+
+      // ── Sport icons bounce ──
+      const sportsBlock = document.querySelector('.ab-float--sports');
+      if (sportsBlock) {
+        sportsBlock.addEventListener('mouseenter', () => sportsBlock.querySelectorAll('.ab-sport-icon').forEach((ic, i) => setTimeout(() => ic.classList.add('bounce'), i * 80)));
+        sportsBlock.addEventListener('mouseleave', () => sportsBlock.querySelectorAll('.ab-sport-icon').forEach(ic => ic.classList.remove('bounce')));
+      }
+
+    });
+  </script>
+</body>
+</html>
