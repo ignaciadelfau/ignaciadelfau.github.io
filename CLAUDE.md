@@ -14,7 +14,23 @@ There is no build/lint/test tooling. To preview locally, serve the folder static
 python3 -m http.server 8000
 ```
 
-then open `index.html`. `wrangler.jsonc` is present (Cloudflare config) but there's no `package.json` or `node_modules` — it looks unused. In practice, publishing is manual: upload the changed files to the `ignaciadelfau.github.io` GitHub repo (root of the repo, not inside a subfolder) and GitHub Pages picks it up. There is no CI/auto-deploy.
+then open `index.html`. `wrangler.jsonc` is present (Cloudflare config) but there's no `package.json` or `node_modules` — it looks unused.
+
+### Publishing
+
+This folder is a git repo wired to `github.com/ignaciadelfau/ignaciadelfau.github.io`. To publish:
+
+```
+git add -A && git commit -m "..." && git push
+```
+
+GitHub Pages rebuilds automatically (~1 min) and serves `ignaciadelfau.com`. **Never upload files through the GitHub web UI** — that's what previously created the `assets ` folder (trailing space, which 404'd every image on the live site), an `index_1.html` duplicate, and 9 stray `prueba` placeholder files.
+
+Two things that must never be deleted from the repo root:
+- `CNAME` — holds `ignaciadelfau.com`; without it the custom domain stops resolving.
+- `_config.yml` — keeps `CLAUDE.md`, `README.md` and `wrangler.jsonc` out of the published site.
+
+Auth gotcha: this Mac also has a `nachotono` GitHub account, which has **read-only** access to this repo. If a push is rejected, check `gh api user --jq .login` and switch with `gh auth switch -u ignaciadelfau`.
 
 ## Architecture
 
